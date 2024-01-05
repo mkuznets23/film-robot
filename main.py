@@ -47,12 +47,14 @@ joystick = pygame.joystick.Joystick(0)
 
 running = 1
 
+
 def thread_input():
     global running
     input("Press enter to stop")
     running = 0
 
 def thread_joystick():
+    global button_state
     while running:
         pygame.init()
         joystick = pygame.joystick.Joystick(0)
@@ -95,19 +97,33 @@ def thread_eye_show():
     disp.clear()
     #Set the backlight to 100
     disp.bl_DutyCycle(50)
+    while running:
+        if button_state[0] == 1:
+            with Image.open('circle_resized.gif') as im:
+                im.seek(1)  # skip to the second frame
 
-    with Image.open('circle_resized.gif') as im:
-        im.seek(1)  # skip to the second frame
+                try:
+                    while 1:
+                        im.seek(im.tell() + 1)
+                        im_r=im.rotate(180)
+                        disp.ShowImage(im_r)
+                        time.sleep(0.01)
+                        # do something to im
+                except EOFError:
+                    pass  # end of sequence
+        if button_state[1] == 1:
+            with Image.open('robot_eye_resized.gif') as im:
+                im.seek(1)  # skip to the second frame
 
-        try:
-            while 1:
-                im.seek(im.tell() + 1)
-                im_r=im.rotate(180)
-                disp.ShowImage(im_r)
-                time.sleep(0.01)
-                # do something to im
-        except EOFError:
-            pass  # end of sequence
+                try:
+                    while 1:
+                        im.seek(im.tell() + 1)
+                        im_r=im.rotate(180)
+                        disp.ShowImage(im_r)
+                        time.sleep(0.01)
+                        # do something to im
+                except EOFError:
+                    pass  # end of sequence
 
 
 if __name__ == "__main__":
