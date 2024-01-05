@@ -82,11 +82,12 @@ def thread_joystick():
             motorLeft = motorLeft / max(motorLeft, motorRight)
             motorRight = motorRight / max(motorLeft, motorRight)
 
-        print(str([motorLeft, motorRight]))
+        # print(str([motorLeft, motorRight]))
 
         # ser.write(str([motorLeft, motorRight]).encode())     # write a string
 
 def thread_eye_show():
+    global button_state
     # display with hardware SPI:
     ''' Warning!!!Don't  creation of multiple displayer objects!!! '''
     #disp = LCD_1inch28.LCD_1inch28(spi=SPI.SpiDev(bus, device),spi_freq=10000000,rst=RST,dc=DC,bl=BL)
@@ -114,7 +115,7 @@ def thread_eye_show():
                 # do something to im
             except EOFError:
                 pass  # end of sequence
-
+        
 if __name__ == "__main__":
     j = threading.Thread(target=thread_joystick)
     j.start()
