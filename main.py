@@ -116,10 +116,11 @@ def thread_eye_show():
 
         # else:
             try:
-                im.seek(im.tell() + 1)
-                im_r=im.rotate(180)
-                disp.ShowImage(im_r)
-                time.sleep(0.01)
+                while 1:
+                    im.seek(im.tell() + 1)
+                    im_r=im.rotate(180)
+                    disp.ShowImage(im_r)
+                    time.sleep(0.01)
                 # do something to im
             except EOFError:
                 pass  # end of sequence
