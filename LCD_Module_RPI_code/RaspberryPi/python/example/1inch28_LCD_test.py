@@ -74,7 +74,7 @@ try:
                 im.seek(im.tell() + 1)
                 im_r=im.rotate(180)
                 disp.ShowImage(im_r)
-                time.sleep(0.1)
+                time.sleep(0.01)
                 # do something to im
         except EOFError:
             pass  # end of sequence
