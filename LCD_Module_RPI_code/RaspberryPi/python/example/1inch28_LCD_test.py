@@ -65,8 +65,17 @@ try:
     time.sleep(3)
     logging.info("show image")
     # image = Image.open('../pic/LCD_1inch28_1.jpg')	
-    image = Image.open('../pic/robot_eye_resized.gif')	
-    im_r=image.rotate(180)
+    # image = Image.open('../pic/robot_eye_resized.gif')	
+    with Image.open('../pic/robot_eye_resized.gif') as im:
+        im.seek(1)  # skip to the second frame
+
+        try:
+            while 1:
+                im.seek(im.tell() + 1)
+                # do something to im
+        except EOFError:
+            pass  # end of sequence
+    im_r=im.rotate(180)
     disp.ShowImage(im_r)
     time.sleep(3)
     disp.module_exit()
