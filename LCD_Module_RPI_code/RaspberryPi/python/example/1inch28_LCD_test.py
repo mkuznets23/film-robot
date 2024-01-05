@@ -72,11 +72,13 @@ try:
         try:
             while 1:
                 im.seek(im.tell() + 1)
+                im_r=im.rotate(180)
+                disp.ShowImage(im_r)
+                time.sleep(0.1)
                 # do something to im
         except EOFError:
             pass  # end of sequence
-    im_r=im.rotate(180)
-    disp.ShowImage(im_r)
+    
     time.sleep(3)
     disp.module_exit()
     logging.info("quit:")
