@@ -98,7 +98,12 @@ def thread_eye_show():
     disp.clear()
     #Set the backlight to 100
     disp.bl_DutyCycle(50)
+    im = Image.open('circle_resized.gif')
+    im.seek(1)
+    
     while running:
+        
+
         if button_state[0] == 1:
             im = Image.open('circle_resized.gif')
             im.seek(1)
