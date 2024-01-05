@@ -59,10 +59,12 @@ def thread_joystick():
         pygame.init()
         joystick = pygame.joystick.Joystick(0)
         events = pygame.event.get()
-        button_state = []
+        button_state = [0,0,0,0,0,0,0,0,0,0,0]
+        button_state_temp = []
         axis_state = []
         for button in range(joystick.get_numbuttons()):
-            button_state.append(joystick.get_button(button))
+            button_state_temp.append(joystick.get_button(button))
+        button_state=button_state_temp
         
         for axis in range(joystick.get_numaxes()):
             axis_state.append(joystick.get_axis(axis))
@@ -100,9 +102,9 @@ def thread_eye_show():
     disp.bl_DutyCycle(50)
     im = Image.open('circle_resized.gif')
     im.seek(1)
-    
+
     while running:
-        
+        print(button_state)
 
         if button_state[0] == 1:
             im = Image.open('circle_resized.gif')
@@ -111,6 +113,7 @@ def thread_eye_show():
         elif button_state[1] == 1:
             im = Image.open('robot_eye_resized.gif')
             im.seek(1)
+
         else:
             try:
                 im.seek(im.tell() + 1)
