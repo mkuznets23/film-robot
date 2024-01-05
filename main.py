@@ -1,11 +1,31 @@
-#test
-#moretest
-import serial
 import threading
+
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+#import chardet
+import os
+import sys 
+import time
+import logging
+import spidev as SPI
+sys.path.append("..")
+from lib import LCD_1inch28
+from PIL import Image,ImageDraw,ImageFont
+
+# Raspberry Pi pin configuration:
+RST = 27
+DC = 25
+BL = 18
+bus = 0 
+device = 0 
+logging.basicConfig(level=logging.DEBUG)
+
+import serial
 import pygame
 # ser = serial.Serial('COM4', 9600)
 
-
+pygame.init()
+joystick = pygame.joystick.Joystick(0)
 # joystick.init()
 
 # axis 0: left horizontal with right positive
@@ -64,7 +84,32 @@ def thread_joystick():
 
         # ser.write(str([motorLeft, motorRight]).encode())     # write a string
 
-    
+def thread_eye_show():
+    # display with hardware SPI:
+    ''' Warning!!!Don't  creation of multiple displayer objects!!! '''
+    #disp = LCD_1inch28.LCD_1inch28(spi=SPI.SpiDev(bus, device),spi_freq=10000000,rst=RST,dc=DC,bl=BL)
+    disp = LCD_1inch28.LCD_1inch28()
+    # Initialize library.
+    disp.Init()
+    # Clear display.
+    disp.clear()
+    #Set the backlight to 100
+    disp.bl_DutyCycle(50)
+
+    with Image.open('circle_resized.gif') as im:
+        im.seek(1)  # skip to the second frame
+
+        try:
+            while 1:
+                im.seek(im.tell() + 1)
+                im_r=im.rotate(180)
+                disp.ShowImage(im_r)
+                time.sleep(0.01)
+                # do something to im
+        except EOFError:
+            pass  # end of sequence
+
+
 if __name__ == "__main__":
     j = threading.Thread(target=thread_joystick)
     j.start()
@@ -72,21 +117,5 @@ if __name__ == "__main__":
     inp = threading.Thread(target=thread_input)
     inp.start()
     
-# try:
-#     while True:
-#         events = pygame.event.get()
-#         for event in events:
-#             if event.type == pygame.JOYBUTTONDOWN:
-#                 print("Button Pressed")
-#                 if joystick.get_button(6):
-#                     # Control Left Motor using L2
-#                     print('L2 pressed')
-#                 elif joystick.get_button(7):
-#                     # Control Right Motor using R2
-#                     print('R2 pressed')
-#             elif event.type == pygame.JOYBUTTONUP:
-#                 print("Button Released")
-
-# except KeyboardInterrupt:
-#     print("EXITING NOW")
-#     joystick.quit()
+    eye = threading.Thread(target=thread_eye_show)
+    eye.start()
