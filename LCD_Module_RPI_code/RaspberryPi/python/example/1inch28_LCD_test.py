@@ -65,7 +65,7 @@ try:
     time.sleep(3)
     logging.info("show image")
     # image = Image.open('../pic/LCD_1inch28_1.jpg')	
-    image = Image.open('../pic/robot_eye.gif')	
+    image = Image.open('../pic/robot_eye_resized.gif')	
     im_r=image.rotate(180)
     disp.ShowImage(im_r)
     time.sleep(3)
