@@ -99,32 +99,21 @@ def thread_eye_show():
     disp.bl_DutyCycle(50)
     while running:
         if button_state[0] == 1:
-            with Image.open('circle_resized.gif') as im:
-                im.seek(1)  # skip to the second frame
-
-                try:
-                    while 1:
-                        im.seek(im.tell() + 1)
-                        im_r=im.rotate(180)
-                        disp.ShowImage(im_r)
-                        time.sleep(0.01)
-                        # do something to im
-                except EOFError:
-                    pass  # end of sequence
-        if button_state[1] == 1:
-            with Image.open('robot_eye_resized.gif') as im:
-                im.seek(1)  # skip to the second frame
-
-                try:
-                    while 1:
-                        im.seek(im.tell() + 1)
-                        im_r=im.rotate(180)
-                        disp.ShowImage(im_r)
-                        time.sleep(0.01)
-                        # do something to im
-                except EOFError:
-                    pass  # end of sequence
-
+            im = Image.open('circle_resized.gif')
+            im.seek(1)
+            
+        elif button_state[1] == 1:
+            im = Image.open('robot_eye_resized.gif')
+            im.seek(1)
+        else:
+            try:
+                im.seek(im.tell() + 1)
+                im_r=im.rotate(180)
+                disp.ShowImage(im_r)
+                time.sleep(0.01)
+                # do something to im
+            except EOFError:
+                pass  # end of sequence
 
 if __name__ == "__main__":
     j = threading.Thread(target=thread_joystick)
