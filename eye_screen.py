@@ -29,7 +29,7 @@ try:
     #Set the backlight to 100
     disp.bl_DutyCycle(50)
 
-    with Image.open('circle_resized.gif') as im:
+    with Image.open('robot_eye_resized.gif') as im:
         im.seek(1)  # skip to the second frame
 
         try:
