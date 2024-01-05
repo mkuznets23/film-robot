@@ -104,17 +104,17 @@ def thread_eye_show():
     im.seek(1)
 
     while running:
-        print(button_state)
+        # print(button_state)
 
-        if button_state[0] == 1:
-            im = Image.open('circle_resized.gif')
-            im.seek(1)
+        # if button_state[0] == 1:
+        #     im = Image.open('circle_resized.gif')
+        #     im.seek(1)
             
-        elif button_state[1] == 1:
-            im = Image.open('robot_eye_resized.gif')
-            im.seek(1)
+        # elif button_state[1] == 1:
+        #     im = Image.open('robot_eye_resized.gif')
+        #     im.seek(1)
 
-        else:
+        # else:
             try:
                 im.seek(im.tell() + 1)
                 im_r=im.rotate(180)
