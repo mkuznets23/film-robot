@@ -169,5 +169,5 @@ if __name__ == "__main__":
     eye = threading.Thread(target=thread_eye_show)
     eye.start()
 
-    # s = threading.Thread(target=thread_serial)
-    # s.start()
+    s = threading.Thread(target=thread_serial)
+    s.start()
