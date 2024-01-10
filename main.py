@@ -160,6 +160,9 @@ def thread_eye_show():
         # time.sleep(0.01)
 
 if __name__ == "__main__":
+    s = threading.Thread(target=thread_serial)
+    s.start()
+    
     j = threading.Thread(target=thread_joystick)
     j.start()
 
@@ -169,5 +172,4 @@ if __name__ == "__main__":
     eye = threading.Thread(target=thread_eye_show)
     eye.start()
 
-    s = threading.Thread(target=thread_serial)
-    s.start()
+    
