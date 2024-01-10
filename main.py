@@ -72,8 +72,8 @@ def thread_joystick():
         
         leftStickHorizontal = axis_state[0]
         leftStickVertical = -axis_state[1]
-        rightStickHorizontal = axis_state[2]
-        rightStickVertical = -axis_state[3]
+        rightStickVertical = axis_state[2]
+        rightStickHorizontal = -axis_state[3]
         state = [leftStickHorizontal,leftStickVertical,rightStickHorizontal,rightStickVertical,button_state[0]]
         # print(state)
 
