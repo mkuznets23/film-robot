@@ -22,7 +22,7 @@ logging.basicConfig(level=logging.DEBUG)
 
 import serial
 import pygame
-# ser = serial.Serial('COM4', 9600)
+
 
 pygame.init()
 joystick = pygame.joystick.Joystick(0)
@@ -86,7 +86,13 @@ def thread_joystick():
 
         # print(str([motorLeft, motorRight]))
         print(button_state)
-        # ser.write(str([motorLeft, motorRight]).encode())     # write a string
+        
+
+def thread_serial():
+    ser = serial.Serial('/dev/ttyACM0', 9600)
+    ser.write(str(2).encode())     # write a string
+    # ser.write(str([motorLeft, motorRight]).encode())     # write a string
+    time.sleep(1000)
 
 def thread_eye_show():
     global button_state
@@ -143,3 +149,6 @@ if __name__ == "__main__":
     
     eye = threading.Thread(target=thread_eye_show)
     eye.start()
+
+    s = threading.Thread(target=thread_serial)
+    s.start()
