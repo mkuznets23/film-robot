@@ -34,6 +34,7 @@ try:
 
         try:
             while 1:
+                print("looping")
                 im.seek(im.tell() + 1)
                 im_r=im.rotate(180)
                 disp.ShowImage(im_r)
