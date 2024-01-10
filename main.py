@@ -95,8 +95,8 @@ def thread_joystick():
             motorRight = motorRight / max(motorLeft, motorRight)
 
         # print(str([motorLeft, motorRight]))
-        print(leftStickVertical)
-        time.sleep(0.1)
+        # print(leftStickVertical)
+        # time.sleep(0.1)
 
 def thread_serial():
     global leftStickVertical
@@ -106,10 +106,8 @@ def thread_serial():
         # ser.write(b"Hello from Raspberry Pi!\n")
         strToSend = str(2)+"~"
         ser.write(strToSend.encode())
-        time.sleep(0.1)
         line = ser.readline().decode('utf-8').rstrip()
         print(line)
-        time.sleep(0.1)
         #time.sleep(1)
     #ser.write(str(2).encode())     # write a string
     # ser.write(str([motorLeft, motorRight]).encode())     # write a string
