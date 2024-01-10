@@ -58,7 +58,7 @@ ser.reset_input_buffer()
 
 def thread_joystick():
     global button_state
-    global rightStickVertical
+    global leftStickVertical
     pygame.init()
     joystick = pygame.joystick.Joystick(0)
     button_state = [0,0,0,0,0,0,0,0,0,0,0]
@@ -98,7 +98,6 @@ def thread_joystick():
         #print(leftStickVertical)
 
 def thread_serial():
-    time.sleep(5)
     global leftStickVertical
     ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
     ser.reset_input_buffer()
