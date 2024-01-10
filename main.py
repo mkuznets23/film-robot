@@ -58,7 +58,7 @@ ser.reset_input_buffer()
 
 def thread_joystick():
     global button_state
-    global leftStickVertical
+    global state
     pygame.init()
     joystick = pygame.joystick.Joystick(0)
     button_state = [0,0,0,0,0,0,0,0,0,0,0]
@@ -83,7 +83,7 @@ def thread_joystick():
         leftStickVertical = -axis_state[1]
         rightStickHorizontal = axis_state[2]
         rightStickVertical = -axis_state[3]
-        state = [leftStickHorizontal,leftStickVertical,rightStickHorizontal,rightStickVertical]
+        state = str(round(leftStickHorizontal,3))+","+str(round(leftStickVertical,3))
         # print(state)
 
         ## LOGIC FOR DIFFERENTIAL DRIVE
@@ -99,12 +99,12 @@ def thread_joystick():
         time.sleep(0.01)
 
 def thread_serial():
-    global leftStickVertical
+    global state
     ser = serial.Serial('/dev/ttyACM0', 115200, timeout=1)
     ser.reset_input_buffer()
     while running:
         # ser.write(b"Hello from Raspberry Pi!\n")
-        strToSend = str(round(leftStickVertical,3))+"~"
+        strToSend = state+"~"
         ser.write(strToSend.encode())
         time.sleep(1/30)
         line = ser.readline().decode('utf-8').rstrip()
