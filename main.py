@@ -89,10 +89,7 @@ def thread_joystick():
             motorRight = motorRight / max(motorLeft, motorRight)
 
         # print(str([motorLeft, motorRight]))
-        #print(button_state)
-        ser.write(str(leftStickHorizontal).encode())
-        line = ser.readline().decode('utf-8').rstrip()
-        print(line)
+        print(rightStickVertical)
 
 def thread_serial():
     global rightStickVertical
