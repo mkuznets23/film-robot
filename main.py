@@ -53,6 +53,9 @@ def thread_input():
     input("Press enter to stop")
     running = 0
 
+ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
+ser.reset_input_buffer()
+
 def thread_joystick():
     global button_state
     global rightStickVertical
@@ -87,7 +90,9 @@ def thread_joystick():
 
         # print(str([motorLeft, motorRight]))
         #print(button_state)
-        
+        ser.write(str(rightStickVertical).encode())
+        line = ser.readline().decode('utf-8').rstrip()
+        print(line)
 
 def thread_serial():
     global rightStickVertical
@@ -159,5 +164,5 @@ if __name__ == "__main__":
     eye = threading.Thread(target=thread_eye_show)
     eye.start()
 
-    s = threading.Thread(target=thread_serial)
-    s.start()
+    # s = threading.Thread(target=thread_serial)
+    # s.start()
