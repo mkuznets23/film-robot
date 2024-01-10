@@ -92,7 +92,7 @@ def thread_joystick():
         #print(leftStickVertical)
 
 def thread_serial():
-    time.sleep(1)
+    time.sleep(5)
     global leftStickVertical
     ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
     ser.reset_input_buffer()
