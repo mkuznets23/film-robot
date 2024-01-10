@@ -61,11 +61,15 @@ def thread_joystick():
     global rightStickVertical
     pygame.init()
     joystick = pygame.joystick.Joystick(0)
+    button_state = [0,0,0,0,0,0,0,0,0,0,0]
+    axis_state = [0,0,0,0]
+    leftStickHorizontal = 0
+    leftStickVertical = 0
+    rightStickHorizontal = 0
+    rightStickVertical = 0
     while running:
         events = pygame.event.get()
-        button_state = [0,0,0,0,0,0,0,0,0,0,0]
         button_state_temp = []
-        axis_state = [0,0,0,0]
         axis_state_temp = []
         for button in range(joystick.get_numbuttons()):
             button_state_temp.append(joystick.get_button(button))
