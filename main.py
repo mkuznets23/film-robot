@@ -89,15 +89,15 @@ def thread_joystick():
             motorRight = motorRight / max(motorLeft, motorRight)
 
         # print(str([motorLeft, motorRight]))
-        print(leftStickVertical)
+        #print(leftStickVertical)
 
 def thread_serial():
-    global rightStickVertical
+    global leftStickVertical
     ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
     ser.reset_input_buffer()
     while running:
         # ser.write(b"Hello from Raspberry Pi!\n")
-        ser.write(str(rightStickVertical).encode())
+        ser.write(str(leftStickVertical).encode())
         line = ser.readline().decode('utf-8').rstrip()
         print(line)
         #time.sleep(1)
@@ -161,5 +161,5 @@ if __name__ == "__main__":
     eye = threading.Thread(target=thread_eye_show)
     eye.start()
 
-    # s = threading.Thread(target=thread_serial)
-    # s.start()
+    s = threading.Thread(target=thread_serial)
+    s.start()
