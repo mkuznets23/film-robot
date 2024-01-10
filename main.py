@@ -55,9 +55,10 @@ def thread_input():
 
 def thread_joystick():
     global button_state
-    pygame.init()
-    joystick = pygame.joystick.Joystick(0)
+    
     while running:
+        pygame.init()
+        oystick = pygame.joystick.Joystick(0)
         events = pygame.event.get()
         button_state = [0,0,0,0,0,0,0,0,0,0,0]
         button_state_temp = []
@@ -85,7 +86,7 @@ def thread_joystick():
             motorRight = motorRight / max(motorLeft, motorRight)
 
         # print(str([motorLeft, motorRight]))
-        print(button_state)
+        # print(button_state)
         # ser.write(str([motorLeft, motorRight]).encode())     # write a string
 
 def thread_eye_show():
@@ -105,8 +106,7 @@ def thread_eye_show():
     im.seek(1)
 
     while running:
-        print("test")
-        
+        print(button_state)
         if button_state[0] == 1:
             im = Image.open('sad.gif')
             im.seek(1)
