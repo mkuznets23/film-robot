@@ -85,7 +85,7 @@ def thread_joystick():
             motorRight = motorRight / max(motorLeft, motorRight)
 
         # print(str([motorLeft, motorRight]))
-        print(button_state)
+        #print(button_state)
         
 
 def thread_serial():
