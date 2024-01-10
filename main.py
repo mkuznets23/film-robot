@@ -105,7 +105,7 @@ def thread_eye_show():
     im.seek(1)
 
     while running:
-        print(button_state)
+        #print(button_state)
         if button_state[0] == 1:
             im = Image.open('sad.gif')
             im.seek(1)
