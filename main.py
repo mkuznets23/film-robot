@@ -55,10 +55,9 @@ def thread_input():
 
 def thread_joystick():
     global button_state
-    
+    pygame.init()
+    joystick = pygame.joystick.Joystick(0)
     while running:
-        pygame.init()
-        oystick = pygame.joystick.Joystick(0)
         events = pygame.event.get()
         button_state = [0,0,0,0,0,0,0,0,0,0,0]
         button_state_temp = []
