@@ -28,8 +28,8 @@ try:
     disp.clear()
     #Set the backlight to 100
     disp.bl_DutyCycle(50)
-
-    with Image.open('robot_eye_resized.gif') as im:
+    with Image.open('angry.mp4') as im:
+    # with Image.open('robot_eye_resized.gif') as im:
         im.seek(1)  # skip to the second frame
 
         try:
