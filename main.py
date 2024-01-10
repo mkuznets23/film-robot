@@ -55,6 +55,7 @@ def thread_input():
 
 def thread_joystick():
     global button_state
+    global rightStickVertical
     pygame.init()
     joystick = pygame.joystick.Joystick(0)
     while running:
@@ -89,10 +90,12 @@ def thread_joystick():
         
 
 def thread_serial():
+    global rightStickVertical
     ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
     ser.reset_input_buffer()
     while running:
-        ser.write(b"Hello from Raspberry Pi!\n")
+        # ser.write(b"Hello from Raspberry Pi!\n")
+        ser.write(str(rightStickVertical).encode())
         line = ser.readline().decode('utf-8').rstrip()
         print(line)
         time.sleep(1)
