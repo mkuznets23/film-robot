@@ -100,7 +100,7 @@ def thread_eye_show():
     disp.clear()
     #Set the backlight to 100
     # disp.bl_DutyCycle(50)
-    disp.bl_DutyCycle(10)
+    disp.bl_DutyCycle(100) #doesnt seem to affect anything
     im = Image.open('calm.gif')
     im.seek(1)
 
