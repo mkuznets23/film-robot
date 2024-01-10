@@ -75,9 +75,9 @@ def thread_joystick():
         
         leftStickHorizontal = axis_state[0]
         leftStickVertical = -axis_state[1]
-        rightStickVertical = axis_state[2]
-        rightStickHorizontal = -axis_state[3]
-        state = [leftStickHorizontal,leftStickVertical,rightStickHorizontal,rightStickVertical,button_state[0]]
+        rightStickHorizontal = axis_state[2]
+        rightStickVertical = -axis_state[3]
+        state = [leftStickHorizontal,leftStickVertical,rightStickHorizontal,rightStickVertical]
         # print(state)
 
         ## LOGIC FOR DIFFERENTIAL DRIVE
@@ -89,7 +89,7 @@ def thread_joystick():
             motorRight = motorRight / max(motorLeft, motorRight)
 
         # print(str([motorLeft, motorRight]))
-        print(rightStickVertical)
+        print(state)
 
 def thread_serial():
     global rightStickVertical
