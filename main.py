@@ -56,6 +56,7 @@ def thread_input():
 def thread_joystick():
     global button_state
     while running:
+        print("looping")
         pygame.init()
         joystick = pygame.joystick.Joystick(0)
         events = pygame.event.get()
@@ -106,7 +107,7 @@ def thread_eye_show():
 
     while running:
         # print(button_state)
-        print("looping")
+        
         # if button_state[0] == 1:
         #     im = Image.open('sad.gif')
         #     im.seek(1)
