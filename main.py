@@ -124,14 +124,19 @@ def thread_eye_show():
             im = Image.open('scared.gif')
             im.seek(1)
         # else:
-        try:
-            im.seek(im.tell() + 1)
-            im_r=im.rotate(180)
-            disp.ShowImage(im_r)
-            time.sleep(0.01)
-            # do something to im
-        except EOFError:
-            pass  # end of sequence
+        # try:
+        #     im.seek(im.tell() + 1)
+        #     im_r=im.rotate(180)
+        #     disp.ShowImage(im_r)
+        #     time.sleep(0.01)
+        #     # do something to im
+        # except EOFError:
+        #     pass  # end of sequence
+        im.seek(im.tell() + 1)
+        im_r=im.rotate(180)
+        disp.ShowImage(im_r)
+        time.sleep(0.01)
+
         
 if __name__ == "__main__":
     j = threading.Thread(target=thread_joystick)
