@@ -90,7 +90,7 @@ def thread_joystick():
 
         # print(str([motorLeft, motorRight]))
         #print(button_state)
-        ser.write(str(rightStickVertical).encode())
+        ser.write(str(leftStickHorizontal).encode())
         line = ser.readline().decode('utf-8').rstrip()
         print(line)
 
