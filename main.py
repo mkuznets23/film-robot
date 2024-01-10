@@ -97,6 +97,7 @@ def thread_joystick():
         # print(str([motorLeft, motorRight]))
         #print(leftStickVertical)
         ser.write(str(leftStickVertical).encode())
+        time.sleep(0.1)
         line = ser.readline().decode('utf-8').rstrip()
         print(line)
 
