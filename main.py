@@ -95,8 +95,8 @@ def thread_joystick():
             motorRight = motorRight / max(motorLeft, motorRight)
 
         # print(str([motorLeft, motorRight]))
-        #print(leftStickVertical)
-        # time.sleep(0.1)
+        # print(leftStickVertical)
+        time.sleep(0.01)
 
 def thread_serial():
     global leftStickVertical
