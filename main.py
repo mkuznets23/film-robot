@@ -105,8 +105,8 @@ def thread_eye_show():
     im.seek(1)
 
     while running:
-        print(button_state)
-
+        # print(button_state)
+        print("looping")
         # if button_state[0] == 1:
         #     im = Image.open('sad.gif')
         #     im.seek(1)
@@ -133,7 +133,7 @@ def thread_eye_show():
         im_r=im.rotate(180)
         disp.ShowImage(im_r)
         time.sleep(0.01)
-        
+
 if __name__ == "__main__":
     j = threading.Thread(target=thread_joystick)
     j.start()
