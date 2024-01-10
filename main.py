@@ -96,6 +96,9 @@ def thread_joystick():
 
         # print(str([motorLeft, motorRight]))
         #print(leftStickVertical)
+        ser.write(str(leftStickVertical).encode())
+        line = ser.readline().decode('utf-8').rstrip()
+        print(line)
 
 def thread_serial():
     global leftStickVertical
@@ -167,5 +170,5 @@ if __name__ == "__main__":
     eye = threading.Thread(target=thread_eye_show)
     eye.start()
 
-    s = threading.Thread(target=thread_serial)
-    s.start()
+    # s = threading.Thread(target=thread_serial)
+    # s.start()
