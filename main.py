@@ -98,7 +98,7 @@ def thread_serial():
         ser.write(str(rightStickVertical).encode())
         line = ser.readline().decode('utf-8').rstrip()
         print(line)
-        time.sleep(1)
+        #time.sleep(1)
     #ser.write(str(2).encode())     # write a string
     # ser.write(str([motorLeft, motorRight]).encode())     # write a string
     #time.sleep(1000)
