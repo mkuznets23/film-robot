@@ -106,24 +106,21 @@ def thread_eye_show():
 
     while running:
         print(button_state)
-        # button 0: A
-        # button 1: B
-        # button 2: X
-        # button 3: Y
-        if button_state[0] == 1:
-            im = Image.open('sad.gif')
-            im.seek(1)
+
+        # if button_state[0] == 1:
+        #     im = Image.open('sad.gif')
+        #     im.seek(1)
             
-        elif button_state[1] == 1:
-            im = Image.open('angry.gif')
-            im.seek(1)
-        elif button_state[2] == 1:
-            im = Image.open('calm.gif')
-            im.seek(1)
-        elif button_state[3] == 1:
-            im = Image.open('scared.gif')
-            im.seek(1)
-        # else:
+        # elif button_state[1] == 1:
+        #     im = Image.open('angry.gif')
+        #     im.seek(1)
+        # elif button_state[2] == 1:
+        #     im = Image.open('calm.gif')
+        #     im.seek(1)
+        # elif button_state[3] == 1:
+        #     im = Image.open('scared.gif')
+        #     im.seek(1)
+
         # try:
         #     im.seek(im.tell() + 1)
         #     im_r=im.rotate(180)
@@ -136,7 +133,6 @@ def thread_eye_show():
         im_r=im.rotate(180)
         disp.ShowImage(im_r)
         time.sleep(0.01)
-
         
 if __name__ == "__main__":
     j = threading.Thread(target=thread_joystick)
