@@ -89,7 +89,7 @@ def thread_joystick():
             motorRight = motorRight / max(motorLeft, motorRight)
 
         # print(str([motorLeft, motorRight]))
-        print(state)
+        print(leftStickVertical)
 
 def thread_serial():
     global rightStickVertical
@@ -118,7 +118,7 @@ def thread_eye_show():
     #Set the backlight to 100
     # disp.bl_DutyCycle(50)
     disp.bl_DutyCycle(100) #doesnt seem to affect anything
-    im = Image.open('calm.gif')
+    im = Image.open('circle_resized.gif')
     im.seek(1)
 
     while running:
