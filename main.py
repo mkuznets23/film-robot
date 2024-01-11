@@ -108,7 +108,7 @@ def thread_serial():
         strToSend = "<"+state+">"
         ser.write(strToSend.encode())
         time.sleep(1/30)
-        line = ser.readline().decode('utf-8').rstrip()
+        #line = ser.readline().decode('utf-8').rstrip()
         # print(line)\
         print(strToSend)
         #time.sleep(1)
