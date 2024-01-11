@@ -96,7 +96,7 @@ def thread_joystick():
 
         # print(str([motorLeft, motorRight]))
         # print(leftStickVertical)
-        time.sleep(0.01)
+        time.sleep(1/30)
 
 def thread_serial():
     global state
