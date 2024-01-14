@@ -81,11 +81,11 @@ def thread_joystick():
 
         leftStickHorizontal = axis_state[0]
         leftStickVertical = -axis_state[1]
-        rightStickHorizontal = axis_state[2]
-        rightStickVertical = -axis_state[3]
+        rightStickHorizontal = axis_state[3]
+        rightStickVertical = -axis_state[4]
         state = str(round(leftStickHorizontal,3))+","+str(round(leftStickVertical,3)) \
                 +","+str(round(rightStickHorizontal,3))+","+str(round(rightStickVertical,3))
-        print(axis_state)
+        
         ## LOGIC FOR DIFFERENTIAL DRIVE
         motorLeft = leftStickVertical + leftStickHorizontal
         motorRight = leftStickVertical - leftStickHorizontal
@@ -111,7 +111,7 @@ def thread_serial():
         time.sleep(1/30)
         #line = ser.readline().decode('utf-8').rstrip()
         #print(line)
-        # print(strToSend)
+        print(strToSend)
         #time.sleep(1)
     #ser.write(str(2).encode())     # write a string
     # ser.write(str([motorLeft, motorRight]).encode())     # write a string
