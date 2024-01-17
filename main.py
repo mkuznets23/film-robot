@@ -105,13 +105,16 @@ def thread_serial():
     ser.reset_input_buffer()
     while running:
         # ser.write(b"Hello from Raspberry Pi!\n")
-        strToSend = state+"~"
-        # strToSend = "<"+state+">"
-        ser.write(strToSend.encode())
-        time.sleep(1/30)
-        #line = ser.readline().decode('utf-8').rstrip()
-        #print(line)
-        print(strToSend)
+        try:
+            strToSend = state+"~"
+            # strToSend = "<"+state+">"
+            ser.write(strToSend.encode())
+            time.sleep(1/30)
+            #line = ser.readline().decode('utf-8').rstrip()
+            #print(line)
+            print(strToSend)
+        except:
+            print("exception")
         #time.sleep(1)
     #ser.write(str(2).encode())     # write a string
     # ser.write(str([motorLeft, motorRight]).encode())     # write a string
