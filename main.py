@@ -111,7 +111,7 @@ def thread_serial():
         time.sleep(1/30)
         #line = ser.readline().decode('utf-8').rstrip()
         #print(line)
-        bytes_out = ser.out_waiting()
+        bytes_out = ser.out_waiting
         print(bytes_out)
 
         #time.sleep(1)
