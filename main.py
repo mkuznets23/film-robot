@@ -116,7 +116,7 @@ def thread_serial():
         print(strToSend)
         if counter > 20:
             # ser.reset_output_buffer()
-            ser.reset_input_buffer()
+            #ser.reset_input_buffer()
             counter = 0
 
 
