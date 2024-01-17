@@ -105,7 +105,7 @@ def thread_joystick():
         time.sleep(1/30)
         #line = ser.readline().decode('utf-8').rstrip()
         #print(line)
-        print(strToSend)
+        print(ser.out_waiting())
 
 
         time.sleep(1/30)
