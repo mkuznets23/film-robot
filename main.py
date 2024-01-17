@@ -103,16 +103,22 @@ def thread_serial():
     # ser = serial.Serial('/dev/ttyACM0', 9600, write_timeout=1)
     ser = serial.Serial('/dev/ttyACM0', 9600)
     ser.reset_input_buffer()
+    counter = 0
     while running:
+        time.sleep(1/30)
+        counter += 1
         # ser.write(b"Hello from Raspberry Pi!\n")
         strToSend = state+"~"
         # strToSend = "<"+state+">"
         ser.write(strToSend.encode())
-        time.sleep(1/30)
         #line = ser.readline().decode('utf-8').rstrip()
         #print(line)
-        bytes_out = ser.out_waiting
-        print(bytes_out)
+        print(strToSend)
+        if counter > 20:
+            ser.reset_output_buffer()
+            ser.reset_input_buffer()
+            counter = 0
+
 
         #time.sleep(1)
     #ser.write(str(2).encode())     # write a string
