@@ -100,7 +100,8 @@ def thread_joystick():
 
 def thread_serial():
     global state
-    ser = serial.Serial('/dev/ttyACM0', 9600, write_timeout=1)
+    # ser = serial.Serial('/dev/ttyACM0', 9600, write_timeout=1)
+    ser = serial.Serial('/dev/ttyACM0', 9600)
     ser.reset_input_buffer()
     while running:
         # ser.write(b"Hello from Raspberry Pi!\n")
