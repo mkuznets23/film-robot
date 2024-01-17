@@ -150,7 +150,7 @@ def thread_eye_show():
 
         try:
             im.seek(im.tell() + 1)
-            im_r=im.rotate(180)
+            # im_r=im.rotate(180)
             disp.ShowImage(im_r)
             time.sleep(0.01)
             # do something to im
