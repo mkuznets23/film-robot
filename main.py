@@ -53,8 +53,8 @@ def thread_input():
     input("Press enter to stop")
     running = 0
 
-ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
-ser.reset_input_buffer()
+# ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
+# ser.reset_input_buffer()
 
 def thread_joystick():
     global button_state
@@ -105,16 +105,14 @@ def thread_serial():
     ser.reset_input_buffer()
     while running:
         # ser.write(b"Hello from Raspberry Pi!\n")
-        try:
-            strToSend = state+"~"
-            # strToSend = "<"+state+">"
-            ser.write(strToSend.encode())
-            time.sleep(1/30)
-            #line = ser.readline().decode('utf-8').rstrip()
-            #print(line)
-            print(strToSend)
-        except:
-            print("exception")
+        strToSend = state+"~"
+        # strToSend = "<"+state+">"
+        ser.write(strToSend.encode())
+        time.sleep(1/30)
+        #line = ser.readline().decode('utf-8').rstrip()
+        #print(line)
+        print(strToSend)
+
         #time.sleep(1)
     #ser.write(str(2).encode())     # write a string
     # ser.write(str([motorLeft, motorRight]).encode())     # write a string
