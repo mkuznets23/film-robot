@@ -94,7 +94,7 @@ def thread_joystick():
         
         state = str(round(motorLeft,3))+","+str(round(motorRight,3)) \
                 +","+str(round(rightStickHorizontal,3))+","+str(round(rightStickVertical,3))
-        print(state)
+        #print(state)
         time.sleep(1/30)
         
 
@@ -110,7 +110,7 @@ def thread_serial():
         time.sleep(1/30)
         #line = ser.readline().decode('utf-8').rstrip()
         #print(line)
-        #print(strToSend)
+        print(strToSend)
         #time.sleep(1)
     #ser.write(str(2).encode())     # write a string
     # ser.write(str([motorLeft, motorRight]).encode())     # write a string
@@ -165,7 +165,7 @@ def thread_eye_show():
 if __name__ == "__main__":
     s = threading.Thread(target=thread_serial)
     s.start()
-    
+
     j = threading.Thread(target=thread_joystick)
     j.start()
 
