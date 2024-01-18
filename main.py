@@ -80,7 +80,7 @@ def thread_joystick():
         for axis in range(joystick.get_numaxes()):
             axis_state_temp.append(joystick.get_axis(axis))
         axis_state = axis_state_temp
-        print(axis_state)
+        #print(axis_state)
         leftStickHorizontal = axis_state[0]
         leftStickVertical = -axis_state[1]
         rightStickHorizontal = axis_state[2]
@@ -96,7 +96,7 @@ def thread_joystick():
         
         state = str(round(motorLeft,3))+","+str(round(motorRight,3)) \
                 +","+str(round(rightStickHorizontal,3))+","+str(round(rightStickVertical,3))
-        #print(state)
+        print(state)
         time.sleep(1/30)
         
 
