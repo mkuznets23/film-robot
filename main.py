@@ -87,8 +87,8 @@ def thread_joystick():
         rightStickVertical = -axis_state[3]
         
         ## LOGIC FOR DIFFERENTIAL DRIVE
-        motorLeft = leftStickVertical + leftStickHorizontal
-        motorRight = leftStickVertical - leftStickHorizontal
+        motorLeft = leftStickVertical - leftStickHorizontal
+        motorRight = leftStickVertical + leftStickHorizontal
         #normalize motors
         if motorRight > 1 or motorLeft > 1:
             motorLeft = motorLeft / max(motorLeft, motorRight)
