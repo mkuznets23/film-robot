@@ -83,8 +83,8 @@ def thread_joystick():
         print(button_state)
         leftStickHorizontal = axis_state[0]
         leftStickVertical = -axis_state[1]
-        rightStickHorizontal = axis_state[2]
-        rightStickVertical = -axis_state[3]
+        rightStickHorizontal = axis_state[2] * 0.5
+        rightStickVertical = -axis_state[3] * 0.5
         
         ## LOGIC FOR DIFFERENTIAL DRIVE
         motorLeft = leftStickVertical + leftStickHorizontal
