@@ -91,8 +91,8 @@ def thread_joystick():
         motorRight = leftStickVertical - leftStickHorizontal
         #normalize motors
         if motorRight > 1 or motorLeft > 1:
-            motorLeft = motorLeft / max(motorLeft, motorRight)
-            motorRight = motorRight / max(motorLeft, motorRight)
+            motorLeft = -motorLeft / max(motorLeft, motorRight)
+            motorRight = -motorRight / max(motorLeft, motorRight)
         
         state = str(round(motorLeft,3))+","+str(round(motorRight,3)) \
                 +","+str(round(rightStickHorizontal,3))+","+str(round(rightStickVertical,3))
