@@ -96,7 +96,7 @@ def thread_joystick():
         
         state = str(round(-motorLeft,3))+","+str(round(-motorRight,3)) \
                 +","+str(round(rightStickHorizontal,3))+","+str(round(rightStickVertical,3))
-        print(state)
+        print(button_state)
         time.sleep(1/30)
         
 
