@@ -95,7 +95,7 @@ def thread_joystick():
             motorRight = motorRight / max(motorLeft, motorRight)
         
         state = str(round(-motorLeft,3))+","+str(round(-motorRight,3)) \
-                +","+str(round(rightStickHorizontal,3))+","+str(round(rightStickVertical,3))
+                +","+str(round(rightStickHorizontal,3))+","+str(round(rightStickVertical*0.5,3))
         print(button_state)
         time.sleep(1/30)
         
