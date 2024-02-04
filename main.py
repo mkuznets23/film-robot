@@ -139,7 +139,6 @@ def thread_eye_show():
         if button_state[0] == 1: #A
             im = Image.open('sad_new.gif')
             im.seek(1)
-            
         elif button_state[1] == 1: #B
             im = Image.open('evil_new.gif')
             im.seek(1)
@@ -148,6 +147,12 @@ def thread_eye_show():
             im.seek(1)
         elif button_state[3] == 1: #X
             im = Image.open('scared_new.gif')
+            im.seek(1)
+        elif button_state[6] == 1: #LeftButton
+            im = Image.open('error.gif')
+            im.seek(1)
+        elif button_state[7] == 1: #RightButton
+            im = Image.open('joy_new.gif')
             im.seek(1)
 
         try:
